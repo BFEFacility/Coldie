@@ -77,6 +77,21 @@ The special thing is that it has never been tried before. Every other cheat has 
 
 One of our main arguments is that: "since this script and approach has never been tried before, they haven't fully validated the server against it; they have been fighting against the most obvious forms of cheaters using their valuable time, resources and funding and not this type of it". This approach has never been seen before so it has never been fought. Also, fighting against this type of cheating is harder than fighting their cheats which can be easily patched with the introduction of **checksums** and with more complicated server logging. This is way harder to patch since it modifies the server's response and keeps the client's request in bound.
 
+If you have heard of a better cheat, tell the maintainers in GitHub Discussions. **Unlimited Nukes** and such are a thing of the past. Not every cheat can be implemented or added due to the differences of this type of cheat compared to that type of cheat.
+
+### Benefits
+
+1. The best anti-ban as of now; it relies on server modifications to make it impossible to be banned and remain playing. It is literally not possible to be banned! Banned accounts can play using Coldie's anti-ban technology.
+2. A wider variety of cheats than all other Bomber Friends cheats!
+3. Isn't based off the version of the game unlike standard APKs or IPAs that are cheated, it can exploit any version that can be exploited!
+4. Open source and customizable: the code is open source meaning that you don't have to worry about malware (the primary concern of modified games) and you can simply customize variables to cheat how you want, not how they want.
+5. Harder to patch and more stable compared to other mods which can easily cause kicks, the only feature which causes a **kickloop** (known as a 10x worse ban) is disabled and not recommended. The game puts more efforts into patching the other types of modding which are easier-to-patch and fought everyday unlike this type of modding!
+
+## Drawbacks
+
+1. Harder to setup than usual; unlike other mods which require a simple installation, it requires the setup of a whole proxy (and the installation of a programming language, libraries). Coldie has tried to simplify such a big step with the introduction of requirements.txt, easy code structure and other measures, however it will never be enough.
+2. Requires a computer, laptop or another machine to host the proxy. That machine should be always open with the proxy in case you wanna play. You need to be connected to the computer's malicious proxy instead of another proxy. If you use adblocking proxies, use an adblocking DNS instead.
+
 ## What is this project licensed under?
 
 This project is licensed under the **GPL** license. For a full breakdown of the license, see the **LICENSE** file.
