@@ -71,10 +71,20 @@ There are a few other things this project would like to complete, apart from sma
 3. **Add many more cheats**. Due to the current state of cheating in the modern day, the cheats Coldie can do mostly range from visual. However, attempts are being made to have visual scripts work and add more cheats (visual or non-visual). However, we can modify the metadata (less important data), for example: modify the game's version so that you can play it on any version, more visual cheats etc. 
 4. *Improve* the code using ternary operators to make it shorter.
 
+## What's so different about this form of cheating?
+
+The special thing is that it has never been tried before. Every other cheat has included Java script injection, hex editing, game file modification, texture modification and things that have modified the game **inside of it**. Other attempted cheats such as memory editors don't work due to server side validation. This form of cheating is new to the game and in fact, it's a very new form of cheating (programmatically using the mitmproxy API instead of manual proxy cheating). 
+
+One of our main arguments is that: "since this script and approach has never been tried before, they haven't fully validated the server against it; they have been fighting against the most obvious forms of cheaters using their valuable time, resources and funding and not this type of it". This approach has never been seen before so it has never been fought. Also, fighting against this type of cheating is harder than fighting their cheats which can be easily patched with the introduction of **checksums** and with more complicated server logging. This is way harder to patch since it modifies the server's response and keeps the client's request in bound.
+
+## What is this project licensed under?
+
+This project is licensed under the **GPL** license. For a full breakdown of the license, see the **LICENSE** file.
+
 ## Coldie would like to thank...
 
 **bombie** is an amazing Python script which was the base of the entire project. It had many features that became the essentials of the proxy-based cheating, the proxy cheating era and Coldie itself. For that, Coldie would like you to star the project to show your appreciation! *The maintainer and owner of that project was me in a lost account, so I'm thanking my own project.*
 
-**mitmproxy** is the entire project summarized in one word, both for **bombie** and **Coldie**. I'd like to thank the **mitmproxy API** which made it possible to modify traffic flow programmatically. The API made this process smoother with it's great documentation, simple naming scheme and the small learning curve of the project which allowed **bombie** to be completed while learning the API (that's how the amazing and quick the API is).
+**mitmproxy** is the entire project summarized in one word, both for **bombie** and **Coldie**. I'd like to thank the **mitmproxy API** which made it possible to modify traffic flow programmatically. The API made this process smoother with it's great documentation, simple naming scheme and the small learning curve of the project which allowed **bombie** to be completed while learning the API (that's how the amazing and quick the API is). The maintainers and owners of each dependency **mitmproxy** uses are also thanked.
 
 **bombie** would like to thank some of the people on iOSGods for providing **bombie** for good motivation and giving answers to some of it's questions. The project was eventually moved to GitHub to ensure more stable hold of the code and it's maintainer, but it will eventually be posted to iOSGods.
