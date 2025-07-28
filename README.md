@@ -1,6 +1,6 @@
 # The new era of Bomber Friends cheating
 
-**Coldie** is a fork of **Bombie**, the original Bomber Friends proxy-based cheat. This is a entirely new vector for this game's cheating that has been created by **bombie**. Unlike other cheaters who have tried to modify the game's binary or inject their own Java code which have been banned many times before... They have been getting weaker and weaker with new anti-cheat update and due to many other factors. The introduction of the checksum will wipe this era in a total way. Talking about the last blow: the failure of their anti-ban which has been wiping cheaters left and right. However, there has been one vector of cheating that hasn't been tried nor secured enough. That's proxy cheating. 
+**Coldie** is a fork of **Bombie**, the original Bomber Friends proxy-based cheat. This is a entirely new vector for this game's cheating that has been created by **bombie**. Unlike other cheaters who have tried to modify the game's binary or inject their own Java code which have been banned many times before... They have been getting weaker and weaker with new anti-cheat updates and due to many other factors. The introduction of the checksum will totally wipe this era and the methods used by it. Talking about the last blow: the failure of their anti-ban which has been wiping cheaters left and right. However, there has been one vector of cheating that hasn't been tried nor fully secured by the game's servers since it was unexpected. That's proxy cheating. 
 
 ## What's proxy cheating?
 
@@ -61,6 +61,16 @@ The proxy acts as the middleman between you and Hyperkani. Think of it as some d
 ## Is this project being maintained? Will any other feature be implemented?
 
 It is being maintained and it adds on to bombie's amazing legacy. Many other features, testcases or code improvements such as the usage of ternary operators (plans are going to make the code 10x shorter and more lightweight) are being tried. The reason why features are added less unlike code improvements or docs (easier but time consuming) is because the API endpoint needs to be tracked, the cloud script name needs to be found, the modifiable code needs to be found and every new feature is always tested and tried in new accounts. This simple explanation doesn't include the time it takes to write the code, the time it takes to write the relevant docs for it, the time it takes to check if it is bannable or safe and many other factors such as code breakage. In other words: like any other cheat but for this cheat, it's a more special case: it takes a lot of time to make and test more cheats and features.
+
+## Are there any other features/things this project would like to achieve?
+
+There are a few other things this project would like to complete, apart from small things specified in some of the code comments, this talks about the big stuff:
+
+1. Include a **requirements.txt** file which makes Python library and dependency installation easier, cleaner and smoother. It's also used in more professional projects.
+2. Have a **stable release**, it's in alpha even after some time due to the long time it takes to test existing features and the time it takes to make new features.
+3. Include a **good tutorial** on how to set this script up
+4. **Add many more cheats**. Due to the current state of cheating in the modern day, the cheats Coldie can do mostly range from visual. However, attempts are being made to have visual scripts work and add more cheats (visual or non-visual). However, we can modify the metadata (less important data), for example: modify the game's version so that you can play it on any version, more visual cheats etc. 
+5. *Improve* the code using ternary operators to make it shorter.
 
 ## Coldie would like to thank...
 
