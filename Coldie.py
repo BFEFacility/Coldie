@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# bombie v1.0-alpha
+# Coldie v0.1-alpha
+# This script is based on bombie. Bombie can be found at: https://github.com/EvilDagger/bombie. Thank you EvilDagger and thank you bombie!
 # Python script that utilizes the mitmproxy API to cheat on Bomber Friends! It handles many cloud functions and abuses requests and responses.
 # It's not just actual hacks... it's visual ones! An anti-ban is paired too! This is the peak of Bomber Friends cheating!
 
