@@ -7,7 +7,6 @@ from mitmproxy import http, ctx
 from time import sleep
 from json import dumps, loads
 from json.decoder import JSONDecodeError
-from random import choice
 
 # This script works by modifying the response of many different cloud scripts (requested cloud scripts to do many things)
 # Keep in mind that this script may be broken by API URL changes, API endpoint changes or the smallest changes to the JSON!
@@ -144,8 +143,8 @@ def response(flow: http.HTTPFlow) -> None:
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000
 
                     # ANTI-BAN 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["banned"] = 1 # 0 is the same as False
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["banReason"] = choice(jokeBans)
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["banned"] = 0 # 0 is the same as False, this uses an integer since an integer is expected by the server
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["banReason"] = ""
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["banExtraInfo"] = ""
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["banInfo"] = ""
 
