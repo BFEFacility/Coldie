@@ -24,8 +24,9 @@ vipspins = -1 # Amount of 150 gem (VIP) spins (visual)
 seasonPass = False # Is season pass enabled? (cannot claim rewards, fashion show rewards doubled and VIP icon is shown)
 XP = -1 # XP which determines the level (not the rank) which gives you pretty good multiplayer benefits
 gems = -1 # Gems (known as EL) (visual)
-medals = -1 # Medals, also known as trophies in the game code (visual, SOME rewards can be claimed, matchmaking changes (unconfirmed), not on leaderboard)
-alwaysBots = True # Always match with bots; no match or medal limitations
+medals = -1 # Medals, also known as trophies in the game code (visual, chests can't be claimed (visual unless you've reached that medal range), matchmaking changes (unconfirmed), not on leaderboard) 
+alwaysBots = True # Always match with bots; no match or medal limitations -> TODO: Test it in higher medal range
+costumes = "0" # Get all costumes (it's a string value by design and requirement), this has been disabled since it has an extremely high chance of a kickloop (instant kick from any type of play, different from a ban) (AFFECTED, UNRECOMMENDED)
 
 fashionPointHandler = "addFashionPoints" # The cloud function which handles fashion show point claiming after an entry has been made.
 fashionPoints = 100 # The number of fashion points (maximum: 100, smart server-side validation refuses bad values)
@@ -37,8 +38,6 @@ tutorialWon = "tutorialWon" # The cloud function which handles if the tutorial i
 injectedTutorialWon = True # Determines if the rewards of the tutorial will be injected (visual)
 injectedTutorialWonBO = 999999 # Determines the BO (bomberium, coins) won by the injected tutorial (visual)
 injectedTutorialWonMedals = 999999 # Medals won by injected tutorial (visual)
-
-jokeBans = ["Maija is coming to harvest your organs for the black market to pay off the development costs of the game.", "You have not been paying for the game development, but your organs certainly do.", "An healthy human heart costs $2,000,000 dollars, enough to offset your server usage costs!", "You can overturn this ban buying the special \"Ban Appeal\" which costs 5,000 dollars!"]
 
 def request(flow: http.HTTPFlow) -> None:
     if flow.request.pretty_url.endswith(apiCloudScriptURL):
@@ -140,7 +139,7 @@ def response(flow: http.HTTPFlow) -> None:
                     else:
                         pass
 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = str(costumes) * 3000 # Responsible for all costumes injection, adds 3,000 set/unset bits which ensures the user will get all 3,000 items (AFFECTED, DON'T USE)
 
                     # ANTI-BAN 
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["banned"] = 0 # 0 is the same as False, this uses an integer since an integer is expected by the server
