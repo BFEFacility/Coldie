@@ -65,6 +65,7 @@ It is being maintained and it adds on to bombie's amazing legacy. Many other fea
 ## Coldie would like to thank...
 
 **bombie** is an amazing Python script which was the base of the entire project. It had many features that became the essentials of the proxy-based cheating, the proxy cheating era and Coldie itself. For that, Coldie would like you to star the project to show your appreciation! *The maintainer and owner of that project was me in a lost account, so I'm thanking my own project.*
+
 **mitmproxy** is the entire project summarized in one word, both for **bombie** and **Coldie**. I'd like to thank the **mitmproxy API** which made it possible to modify traffic flow programmatically. The API made this process smoother with it's great documentation, simple naming scheme and the small learning curve of the project which allowed **bombie** to be completed while learning the API (that's how the amazing and quick the API is).
+
 **bombie** would like to thank some of the people on iOSGods for providing **bombie** for good motivation and giving answers to some of it's questions. The project was eventually moved to GitHub to ensure more stable hold of the code and it's maintainer, but it will eventually be posted to iOSGods.
-TUTORIAL ONLY (*There is a tutorial for every new player, this modifies some statistics*)
