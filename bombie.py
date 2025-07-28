@@ -4,7 +4,6 @@
 # It's not just actual hacks... it's visual ones! An anti-ban is paired too! This is the peak of Bomber Friends cheating!
 
 from mitmproxy import http, ctx
-from time import sleep
 from json import dumps, loads
 from json.decoder import JSONDecodeError
 
@@ -42,13 +41,11 @@ injectedTutorialWonMedals = 999999 # Medals won by injected tutorial (visual)
 def request(flow: http.HTTPFlow) -> None:
     if flow.request.pretty_url.endswith(apiCloudScriptURL):
         ctx.log.info("bombie: found request!")
-        sleep(0.25)
         ctx.log.info("checking the request's cloud script...")
         try:
             apiCloudScriptURLRequest = loads(flow.request.get_text())
         except JSONDecodeError:
             ctx.log.warn("bombie: this endpoint has returned undecodable JSON. this is a very weird and uncommon issue which has been caused due to API breakages, trying workaround...")
-            sleep(0.25)
             try:
                 apiCloudScriptURLRequest = loads(dumps(flow.response.get_text()))
             except JSONDecodeError:
@@ -81,13 +78,11 @@ def request(flow: http.HTTPFlow) -> None:
 def response(flow: http.HTTPFlow) -> None:
     if flow.request.pretty_url.endswith(apiCloudScriptURL):
         ctx.log.info("bombie: found api endpoint!")
-        sleep(0.25)
         ctx.log.info("bombie: checking the entire cloud script...")
         try:
             apiCloudScriptURLResponse = loads(flow.response.get_text())
         except JSONDecodeError:
             ctx.log.warn("bombie: this endpoint has returned undecodable JSON. this is a very common issue due to bad return value however there's a workaround...")
-            sleep(0.25)
             try:
                 apiCloudScriptURLResponse = loads(dumps(flow.response.get_text())) # Workaround for the currently bad JSON for Python's json.loads()
             except JSONDecodeError:
