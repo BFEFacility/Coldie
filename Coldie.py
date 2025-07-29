@@ -37,7 +37,7 @@ ad = True # Doubles the number of fashion points
 # NEW PLAYER EXCLUSIVE STUFF :(
 
 tutorialWon = "tutorialWon" # The cloud function which handles if the tutorial is won
-injectedTutorialWon = True # Determines if the rewards of the tutorial will be injected (visual)
+injectedTutorialWon = False # Determines if the rewards of the tutorial will be injected (visual)
 injectedTutorialWonBO = 999999 # Determines the BO (bomberium, coins) won by the injected tutorial (visual)
 injectedTutorialWonMedals = 999999 # Medals won by injected tutorial (visual)
 
