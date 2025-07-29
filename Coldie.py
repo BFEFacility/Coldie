@@ -19,15 +19,15 @@ apiURL = "https://e1e6.playfabapi.com" # The URL of the API
 apiCloudScriptURL = apiURL + "/Client/ExecuteCloudScript" # The cloud script's API endpoint which manages the execution of essential scripts
 
 retrieveData = "getInitialData" # The only cloud script function which gets the initial data of the game (account included) which spans to a lot of hard-to-decode JSON full of metadata
-bomberium = -1 # Amount of bomberium (visual)
-freespins = -1 # Amount of free (non-VIP) spins (visual)
-vipspins = -1 # Amount of 150 gem (VIP) spins (visual)
+bomberium = False # Amount of bomberium (visual)
+freespins = False # Amount of free (non-VIP) spins (visual)
+vipspins = False # Amount of 150 gem (VIP) spins (visual)
 seasonPass = False # Is season pass enabled? (cannot claim rewards, fashion show rewards doubled and VIP icon is shown)
-XP = -1 # XP which determines the level (not the rank) which gives you pretty good multiplayer benefits
-gems = -1 # Gems (known as EL) (visual)
-medals = -1 # Medals, also known as trophies in the game code (visual, chests can't be claimed (visual unless you've reached that medal range), matchmaking changes (unconfirmed), not on leaderboard) 
-alwaysBots = True # Always match with bots; no match or medal limitations -> TODO: Test it in higher medal range
-costumes = -1 # Get all costumes (it's a string value by design and requirement), this has been disabled since it has an extremely high chance of a kickloop (instant kick from any type of play, different from a ban) (AFFECTED, UNRECOMMENDED)
+XP = False # XP which determines the level (not the rank) which gives you pretty good multiplayer benefits
+gems = False # Gems (known as EL) (visual)
+medals = False # Medals, also known as trophies in the game code (visual, chests can't be claimed (visual unless you've reached that medal range), matchmaking changes (unconfirmed), not on leaderboard) 
+alwaysBots = False # Always match with bots; no match or medal limitations -> TODO: Test it in higher medal range
+costumes = False # Get all costumes (it's a string value by design and requirement), this has been disabled since it has an extremely high chance of a kickloop (instant kick from any type of play, different from a ban) (AFFECTED, UNRECOMMENDED)
 recommendedVersion = True # Always sets your version of the game to the recommended version of the game which allows you to play the game in any version of Bomber Friends (does not bring back features, just allows play)
 
 fashionPointHandler = "addFashionPoints" # The cloud function which handles fashion show point claiming after an entry has been made.
@@ -102,27 +102,27 @@ def response(flow: http.HTTPFlow) -> None:
                     if isinstance(apiCloudScriptURLResponse["data"]["FunctionResult"], str):
                         apiCloudScriptURLResponse["data"]["FunctionResult"] = loads(apiCloudScriptURLResponse["data"]["FunctionResult"])
                     
-                    if bomberium != -1:
+                    if bomberium != False:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium)
                     else:
                         pass
 
-                    if freespins != -1:
+                    if freespins != False:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins)
                     else:
                         pass
 
-                    if vipspins != -1:
+                    if vipspins != False:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"] = int(vipspins)
                     else:
                         pass
 
-                    if gems != -1:
+                    if gems != False:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems)
                     else:
                         pass
 
-                    if medals != -1:
+                    if medals != False:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals)
                     else:
                         pass
@@ -132,17 +132,17 @@ def response(flow: http.HTTPFlow) -> None:
                     else:
                         pass
 
-                    if XP != -1:
+                    if XP != False:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP
                     else:
                         pass
                     
-                    if costumes != -1:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = str(costumes) * 3000 # Responsible for all costumes injection, adds 3,000 set/unset bits which ensures the user will get all 3,000 items (AFFECTED, DON'T USE)
+                    if costumes != False:
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 # Responsible for all costumes injection, adds 3,000 set/unset bits which ensures the user will get all 3,000 items (AFFECTED, DON'T USE)
                     else:
                         pass
                     
-                    if recommendedVersion != -1:
+                    if recommendedVersion != False:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] # I couldn't int() nor float() this since updating scheme numbers can change at any time. 2.0 == 2 but it's better to be safe than sorry (JS has weird maths too)!
                         # If this was int()-ed, 752.5 would be 752 causing errors and problems
                     else:
