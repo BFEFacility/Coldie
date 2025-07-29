@@ -75,7 +75,7 @@ There are a few other things this project would like to complete, apart from sma
 1. Have a **stable release**, it's in alpha even after some time due to the long time it takes to test existing features and the time it takes to make new features.
 2. Include a **good tutorial** on how to set this script up
 3. **Add many more cheats**. Due to the current state of cheating in the modern day, the cheats Coldie can do mostly range from visual. However, attempts are being made to have visual scripts work and add more cheats (visual or non-visual). However, we can modify the metadata (less important data), for example: modify the game's version so that you can play it on any version, more visual cheats etc. 
-4. *Improve* the code using ternary operators to make it shorter.
+4. *Improve* the code.
 
 ## What's so different about this form of cheating?
 
