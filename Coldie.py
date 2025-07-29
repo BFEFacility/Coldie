@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# Coldie v0.1-alpha
-# This script is based on bombie. Bombie can be found at: https://github.com/EvilDagger/bombie. Thank you EvilDagger and thank you bombie!
+# bombie v1.0-alpha
 # Python script that utilizes the mitmproxy API to cheat on Bomber Friends! It handles many cloud functions and abuses requests and responses.
 # It's not just actual hacks... it's visual ones! An anti-ban is paired too! This is the peak of Bomber Friends cheating!
 
@@ -12,7 +11,9 @@ from json.decoder import JSONDecodeError
 # Keep in mind that this script may be broken by API URL changes, API endpoint changes or the smallest changes to the JSON!
 
 # Variables which make the modification of the script easier
-# Putting values at -1 doesn't modify them and puts them as the same values. Holds true and should be done mostly for visual or unneeded values
+# Putting values at -1 doesn't modify them and puts them as the same values. Holds true and should be done mostly for visual or unneeded values. The script simply checks if the value is -1 and discards the changes if that is true to ensure script safety
+# Keep in mind the game accepts 0 as an unset bit and 1 as a set bit, it can also accept boolean values and integers however request/response flow has been modified to fit the used data type.
+# TODO: Change values from -1 to False. Apart from representing the state of an unset bit (0), -1 doesn't represent an unset bit nor a set bit creating confusing. This change will be done in beta at maximum!
 
 apiURL = "https://e1e6.playfabapi.com" # The URL of the API
 apiCloudScriptURL = apiURL + "/Client/ExecuteCloudScript" # The cloud script's API endpoint which manages the execution of essential scripts
@@ -26,7 +27,8 @@ XP = -1 # XP which determines the level (not the rank) which gives you pretty go
 gems = -1 # Gems (known as EL) (visual)
 medals = -1 # Medals, also known as trophies in the game code (visual, chests can't be claimed (visual unless you've reached that medal range), matchmaking changes (unconfirmed), not on leaderboard) 
 alwaysBots = True # Always match with bots; no match or medal limitations -> TODO: Test it in higher medal range
-costumes = "0" # Get all costumes (it's a string value by design and requirement), this has been disabled since it has an extremely high chance of a kickloop (instant kick from any type of play, different from a ban) (AFFECTED, UNRECOMMENDED)
+costumes = -1 # Get all costumes (it's a string value by design and requirement), this has been disabled since it has an extremely high chance of a kickloop (instant kick from any type of play, different from a ban) (AFFECTED, UNRECOMMENDED)
+recommendedVersion = True # Always sets your version of the game to the recommended version of the game which allows you to play the game in any version of Bomber Friends (does not bring back features, just allows play)
 
 fashionPointHandler = "addFashionPoints" # The cloud function which handles fashion show point claiming after an entry has been made.
 fashionPoints = 100 # The number of fashion points (maximum: 100, smart server-side validation refuses bad values)
@@ -134,8 +136,17 @@ def response(flow: http.HTTPFlow) -> None:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP
                     else:
                         pass
-
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = str(costumes) * 3000 # Responsible for all costumes injection, adds 3,000 set/unset bits which ensures the user will get all 3,000 items (AFFECTED, DON'T USE)
+                    
+                    if costumes != -1:
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = str(costumes) * 3000 # Responsible for all costumes injection, adds 3,000 set/unset bits which ensures the user will get all 3,000 items (AFFECTED, DON'T USE)
+                    else:
+                        pass
+                    
+                    if recommendedVersion != -1:
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] # I couldn't int() nor float() this since updating scheme numbers can change at any time. 2.0 == 2 but it's better to be safe than sorry (JS has weird maths too)!
+                        # If this was int()-ed, 752.5 would be 752 causing errors and problems
+                    else:
+                        pass
 
                     # ANTI-BAN 
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["banned"] = 0 # 0 is the same as False, this uses an integer since an integer is expected by the server
