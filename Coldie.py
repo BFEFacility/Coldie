@@ -110,7 +110,7 @@ def response(flow: http.HTTPFlow) -> None:
 
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP if XP != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"]
                     
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 if costumes != False else piCloudScriptURLResponse["data"]["FunctionResult"]["custItems"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 if costumes != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"]
                     
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] if recommendedVersion != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] # Make the version become the version if the feature is not on
 
