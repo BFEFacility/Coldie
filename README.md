@@ -95,12 +95,16 @@ If you have heard of a better cheat, tell the maintainers in GitHub Discussions.
 
 ## Drawbacks
 
-1. Harder to setup than usual; unlike other mods which require a simple installation, it requires the setup of a whole proxy (and the installation of a programming language, libraries). Coldie has tried to simplify such a big step with the introduction of requirements.txt, easy code structure and other measures, however it will never be enough.
+1. Harder to setup than usual; unlike other mods which require a simple , it requires the setup of a whole proxy (and the  of a programming language, libraries). Coldie has tried to simplify such a big step with the introduction of requirements.txt, easy code structure and other measures, however it will never be enough.
 2. Requires a computer, laptop or another machine to host the proxy. That machine should be always open with the proxy in case you wanna play. You need to be connected to the computer's malicious proxy instead of another proxy. If you use adblocking proxies, use an adblocking DNS instead.
 
 ## What is this project licensed under?
 
 This project is licensed under the **GPL** license. For a full breakdown of the license, see the **LICENSE** file.
+
+## How do I install Coldie?
+
+**Coldie** can be installed with the steps in **INSTALLATION.md**. The steps of the installation, setup and everything about using it is there!
 
 ## Coldie would like to thank...
 
