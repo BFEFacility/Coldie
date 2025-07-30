@@ -31,7 +31,7 @@ costumes = False # Get all costumes (it's a string value by design and requireme
 recommendedVersion = True # Always sets your version of the game to the recommended version of the game which allows you to play the game in any version of Bomber Friends (does not bring back features, just allows play)
 
 fashionPointHandler = "addFashionPoints" # The cloud function which handles fashion show point claiming after an entry has been made.
-fashionPoints = 100 # The number of fashion points (maximum: 100, smart server-side validation refuses bad values)
+fashionPoints = 100 # The number of fashion points (maximum: 100, smart server-side validation refuses bad values and causes kick)
 ad = True # Doubles the number of fashion points
 
 # NEW PLAYER EXCLUSIVE STUFF :(
@@ -60,14 +60,8 @@ def request(flow: http.HTTPFlow) -> None:
             ctx.log.error(e)
         if apiCloudScriptURLRequest["FunctionName"] == fashionPointHandler: # If the request's script is the fashion point giver...
             try:
-                if fashionPoints != -1:
-                    apiCloudScriptURLRequest["FunctionParameter"]["points"] = fashionPoints
-                else:
-                    pass 
-                if ad != False:
-                    apiCloudScriptURLRequest["FunctionParameter"]["ad"] = bool(ad)
-                else:
-                    pass
+                apiCloudScriptURLRequest["FunctionParameter"]["points"] = fashionPoints if fashionPoints != False else apiCloudScriptURLRequest["FunctionParameter"]["points"] 
+                apiCloudScriptURLRequest["FunctionParameter"]["ad"] = bool(ad) if ad != False else apiCloudScriptURLRequest["FunctionParameter"]["ad"]
                 ctx.log.info("bombie: VALUE INJECTION SUCCESSFUL! [1/2]")
             except KeyError:
                 ctx.log.error("bombie: the API has been changed and the result of the initial data cannot be found")
@@ -102,51 +96,23 @@ def response(flow: http.HTTPFlow) -> None:
                     if isinstance(apiCloudScriptURLResponse["data"]["FunctionResult"], str):
                         apiCloudScriptURLResponse["data"]["FunctionResult"] = loads(apiCloudScriptURLResponse["data"]["FunctionResult"])
                     
-                    if bomberium != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium)
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium) if bomberium != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"]
 
-                    if freespins != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins)
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if freespins != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
 
-                    if vipspins != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"] = int(vipspins)
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if vipspins != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
 
-                    if gems != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems)
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems) if gems != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"]
 
-                    if medals != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals)
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals) if medals != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"]
 
-                    if seasonPass != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"] = seasonPass
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"] = seasonPass if seasonPass != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"]
 
-                    if XP != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP if XP != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"]
                     
-                    if costumes != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 # Responsible for all costumes injection, adds 3,000 set/unset bits which ensures the user will get all 3,000 items (AFFECTED, DON'T USE)
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 if costumes != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"]
                     
-                    if recommendedVersion != False:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] # I couldn't int() nor float() this since updating scheme numbers can change at any time. 2.0 == 2 but it's better to be safe than sorry (JS has weird maths too)!
-                        # If this was int()-ed, 752.5 would be 752 causing errors and problems
-                    else:
-                        pass
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] if recommendedVersion != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] # Make the version become the version if the feature is not on
 
                     # ANTI-BAN 
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["banned"] = 0 # 0 is the same as False, this uses an integer since an integer is expected by the server
