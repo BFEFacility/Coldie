@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# bombie v1.0-alpha
+# Coldie v1.0-alpha
 # Python script that utilizes the mitmproxy API to cheat on Bomber Friends! It handles many cloud functions and abuses requests and responses.
 # It's not just actual hacks... it's visual ones! An anti-ban is paired too! This is the peak of Bomber Friends cheating!
 
@@ -43,16 +43,16 @@ injectedTutorialWonMedals = 999999 # Medals won by injected tutorial (visual)
 
 def request(flow: http.HTTPFlow) -> None:
     if flow.request.pretty_url.endswith(apiCloudScriptURL):
-        ctx.log.info("bombie: found request!")
+        ctx.log.info("Coldie: found request!")
         ctx.log.info("checking the request's cloud script...")
         try:
             apiCloudScriptURLRequest = loads(flow.request.get_text())
         except JSONDecodeError:
-            ctx.log.warn("bombie: this endpoint has returned undecodable JSON. this is a very weird and uncommon issue which has been caused due to API breakages, trying workaround...")
+            ctx.log.warn("Coldie: this endpoint has returned undecodable JSON. this is a very weird and uncommon issue which has been caused due to API breakages, trying workaround...")
             try:
                 apiCloudScriptURLRequest = loads(dumps(flow.response.get_text()))
             except JSONDecodeError:
-                ctx.log.error("bombie: nothing about this request is right and bombie cannot intercept it!")
+                ctx.log.error("Coldie: nothing about this request is right and Coldie cannot intercept it!")
                 flow.kill() # Kills the flow
             except Exception as e:
                 ctx.log.error(e)
@@ -62,28 +62,28 @@ def request(flow: http.HTTPFlow) -> None:
             try:
                 apiCloudScriptURLRequest["FunctionParameter"]["points"] = fashionPoints if fashionPoints != False else apiCloudScriptURLRequest["FunctionParameter"]["points"] 
                 apiCloudScriptURLRequest["FunctionParameter"]["ad"] = bool(ad) if ad != False else apiCloudScriptURLRequest["FunctionParameter"]["ad"]
-                ctx.log.info("bombie: VALUE INJECTION SUCCESSFUL! [1/2]")
+                ctx.log.info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
             except KeyError:
-                ctx.log.error("bombie: the API has been changed and the result of the initial data cannot be found")
+                ctx.log.error("Coldie: the API has been changed and the result of the initial data cannot be found")
             except Exception as e:
                 ctx.log.error(e)
             flow.request.text = dumps(apiCloudScriptURLRequest)
-            ctx.log.info("bombie: INJECTED REQUEST SENT TO SERVER! [2/2] :D")
+            ctx.log.info("Coldie: INJECTED REQUEST SENT TO SERVER! [2/2] :D")
         else: # TODO: Add more requests to hook...
-            ctx.log.warn("bombie: as of now, bombie doesn't support other exploitable functions!")
+            ctx.log.warn("Coldie: as of now, Coldie doesn't support other exploitable functions!")
 
 def response(flow: http.HTTPFlow) -> None:
     if flow.request.pretty_url.endswith(apiCloudScriptURL):
-        ctx.log.info("bombie: found api endpoint!")
-        ctx.log.info("bombie: checking the entire cloud script...")
+        ctx.log.info("Coldie: found api endpoint!")
+        ctx.log.info("Coldie: checking the entire cloud script...")
         try:
             apiCloudScriptURLResponse = loads(flow.response.get_text())
         except JSONDecodeError:
-            ctx.log.warn("bombie: this endpoint has returned undecodable JSON. this is a very common issue due to bad return value however there's a workaround...")
+            ctx.log.warn("Coldie: this endpoint has returned undecodable JSON. this is a very common issue due to bad return value however there's a workaround...")
             try:
                 apiCloudScriptURLResponse = loads(dumps(flow.response.get_text())) # Workaround for the currently bad JSON for Python's json.loads()
             except JSONDecodeError:
-                ctx.log.error("bombie: nothing works!")
+                ctx.log.error("Coldie: nothing works!")
                 flow.kill() # kills the entire flow and nothing is sent!
             except Exception as e:
                 ctx.log.error(e)
@@ -129,14 +129,14 @@ def response(flow: http.HTTPFlow) -> None:
                     else:
                         pass
 
-                    ctx.log.info("bombie: VALUE INJECTION SUCCESSFUL! [1/2]")
+                    ctx.log.info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
                 except KeyError:
-                    ctx.log.error("bombie: the API has been changed and the result of the initial data cannot be found")
+                    ctx.log.error("Coldie: the API has been changed and the result of the initial data cannot be found")
                 except Exception as e:
                     ctx.log.error(e)
                 try:
                     flow.response.text = dumps(apiCloudScriptURLResponse)
-                    ctx.log.info("bombie: INJECTED RESPONSE SENT TO CLIENT! [2/2] :D")
+                    ctx.log.info("Coldie: INJECTED RESPONSE SENT TO CLIENT! [2/2] :D")
                 except Exception as e:
                     ctx.log.error(e)
             elif apiCloudScriptURLResponse["data"]["FunctionName"] == tutorialWon:
@@ -146,20 +146,20 @@ def response(flow: http.HTTPFlow) -> None:
                     try:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(injectedTutorialWonBO) # The injected bomberium is the bomberium you earn visually after spoofed tutorial completion
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(injectedTutorialWonMedals) # The injected medals is the medals you earn visually in the spoofed tutorial match
-                        ctx.log.info("bombie: VALUE INJECTION SUCCESSFUL! [1/2]")
+                        ctx.log.info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
                     except KeyError:
-                        ctx.log.error("bombie: the API has been changed and the result of the initial data cannot be found")
+                        ctx.log.error("Coldie: the API has been changed and the result of the initial data cannot be found")
                     except Exception as e:
                         ctx.log.error(e)
                 else:
                     pass
             try:
                 flow.response.text = dumps(apiCloudScriptURLResponse)
-                ctx.log.info("bombie: INJECTED RESPONSE SENT TO CLIENT! [2/2] :D")
+                ctx.log.info("Coldie: INJECTED RESPONSE SENT TO CLIENT! [2/2] :D")
             except Exception as e:
                 ctx.log.error(e)
             else: # TODO: Implement many more cloud scripts (every cloud script require it's function name and data to setup)
-                ctx.log.warn("bombie: as of now, bombie doesn't support other exploitable functions!")
+                ctx.log.warn("Coldie: as of now, Coldie doesn't support other exploitable functions!")
 
         else:
-            ctx.log.error("bombie: non-ok status code has been returned pre-modification!")
+            ctx.log.error("Coldie: non-ok status code has been returned pre-modification!")
