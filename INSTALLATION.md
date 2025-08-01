@@ -51,13 +51,75 @@ hint: See PEP 668 for the detailed specification.
 That means your system is a fork of another system and the system is externally managed. You should check this StackOverflow post which provides many solutions to this issue: https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3. I'd recommend setting up a Virtual Environment (search it up or find out how to do in the provided post) to fix this error and the breakage of such packages. The most reckless yet laziest solution would be to use the *--break-system-packages* flag which could risk breaking your Python installation or OS. However, the rule of thumb is that if you see any errors about conflicts, remove the installed packages and nothing will have ever happened.
 
 7. You are all done! To set the proxy up, run this command: `mitmweb --script ./Coldie.py` or `mitmweb -s ./Coldie.py`. You only need the binary now since every relevant package (and CLI tool) the code uses has been installed. You can now remove the other files which are unnecessary for the actual tool to run except the binary and all of it's packages. **Keep the proxy on when it should be on and off when it should be off when playing**
+8. **Ctrl+C** the proxy since there is more work to do (**setup**, **phone setup** etc.)
    
 RECOMMENDED. You can put the binary in a easy-to-remember place which doesn't get cleaned up. You can put it in `/bin` or the directory of the binaries.
 
-## Installation on Windows systems
-
-**The installation of Windows operating systems will be added later due to further testing of it's implementation of mitmproxy and it's Python API. Please wait!**
+## Installation on Macintosh systems
 
 For Macintosh systems, the steps of installations are the exact same as in Linux. If Python is not installed, use this command: `brew install python`. Your version of Python (you can have many, just use pip3 to install all packages and Python 3 for all operations! 
+
+## Setup
+
+**You will need to edit the Python binary. For people who have Python experience, skip this section. For those who need a guided experience, proceed.**
+
+1. Open the Python binary (file) in your preferred text editor. If it's an IDE or a text editor that supports Python, this phase will be better and easier to do.
+2. You need to edit the variables. **A big chunk of them** are *False* since they are not enabled by default (the script checks if the variables are False and does not do anything if so). You need to change the falsy values (booleans) to truthy values!
+3. This is the current chunk of code you need to change which only includes the variables that make an effect. Comments are included:
+
+```
+apiURL = "https://e1e6.playfabapi.com" # The URL of the API
+apiCloudScriptURL = apiURL + "/Client/ExecuteCloudScript" # The cloud script's API endpoint which manages the execution of essential scripts
+
+retrieveData = "getInitialData" # The only cloud script function which gets the initial data of the game (account included) which spans to a lot of hard-to-decode JSON full of metadata
+bomberium = False # Amount of bomberium (visual)
+freespins = False # Amount of free (non-VIP) spins (visual)
+vipspins = False # Amount of 150 gem (VIP) spins (visual)
+seasonPass = False # Is season pass enabled? (cannot claim rewards, fashion show rewards doubled and VIP icon is shown)
+XP = False # XP which determines the level (not the rank) which gives you pretty good multiplayer benefits
+gems = False # Gems (known as EL) (visual)
+medals = False # Medals, also known as trophies in the game code (visual, chests can't be claimed (visual unless you've reached that medal range), matchmaking changes (unconfirmed), not on leaderboard) 
+alwaysBots = False # Always match with bots; no match or medal limitations -> TODO: Test it in higher medal range
+costumes = False # Get all costumes (it's a string value by design and requirement), this has been disabled since it has an extremely high chance of a kickloop (instant kick from any type of play, different from a ban) (AFFECTED, UNRECOMMENDED)
+recommendedVersion = True # Always sets your version of the game to the recommended version of the game which allows you to play the game in any version of Bomber Friends (does not bring back features, just allows play)
+
+fashionPointHandler = "addFashionPoints" # The cloud function which handles fashion show point claiming after an entry has been made.
+fashionPoints = 100 # The number of fashion points (maximum: 100, smart server-side validation refuses bad values and causes kick)
+ad = True # Doubles the number of fashion points
+
+tutorialWon = "tutorialWon" # The cloud function which handles if the tutorial is won
+injectedTutorialWon = False # Determines if the rewards of the tutorial will be injected (visual)
+injectedTutorialWonBO = 999999 # Determines the BO (bomberium, coins) won by the injected tutorial (visual)
+injectedTutorialWonMedals = 999999 # Medals won by injected tutorial (visual)
+```
+
+This code will be explained shortly.
+
+4. **apiUrl** and **apiCloudScriptURL** are variables which hold the API endpoint (you don't need to worry about them). You will need to change the variables below it:
+
+bomberium = *put a integer here* (bomberium = 1000000)
+freespins = *put a integer here* (freespins = 1000000)
+vipspins = *put a integer here* (vipspins = 1000000)
+seasonPass = *put a boolean here (like True/False)* (seasonPass = True)
+XP = *put a integer here* (XP = 100000)
+gems = *put a integer here* (gems = 1000000)
+medals = *put a integer here* (medals = 1000000)
+alwaysBots = *put a boolean here (like True/False)* (alwaysBots = True)
+costumes = *put a boolean here (like True/False*) (costumes = False)
+recommendedVersion = *put a boolean here (like True/False)* (recommendedVersion = True)
+
+fashionPoints = *put a integer here (between 1-100)* (fashionPoints = 100)
+ad = *put a boolean here (like True/False)* (ad = True)
+
+**These last variables are only for new players and they're visual. There's no good reason for most players to change these values and only new players can be affected by these last exploits! They are also (mostly) undocumented in value ranges**
+
+injectedTutorialWon = *put a boolean here (like True/False)* (injectedTutorialWon = False)
+injectedTutorialWonBO = *put a integer here* (injectedTutorialWonBO = 999999)
+injectedTutorialWonMedals = *put a integer here* (injectedTutorialWonMedals = 999999)
+
+**KEEP IN MIND**: These values are simply examples of what to change. They guide you through the whole process with the expected values and they show example values. Not every value has been fully tested (with the range of it). Rule of thumb is not to put floats into integers. **DON'T BE DUMB, DO AS TOLD AND AS EXPECTED!**
+
+5. Once changed, save the changes. That's it. All you needed to change was a couple of variables. Now, the script can correctly and precisely check and actually **modify** (since falsy values do not actually modify it)
+
 
 All you need to know for the installation is that you simply need to have **Python** installed and **mitmproxy**, which most systems have for installation.
