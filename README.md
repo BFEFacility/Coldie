@@ -113,3 +113,9 @@ This project is licensed under the **GPL** license. For a full breakdown of the 
 **mitmproxy** is the entire project summarized in one word, both for **bombie** and **Coldie**. I'd like to thank the **mitmproxy API** which made it possible to modify traffic flow programmatically. The API made this process smoother with it's great documentation, simple naming scheme and the small learning curve of the project which allowed **bombie** to be completed while learning the API (that's how the amazing and quick the API is). The maintainers and owners of each dependency **mitmproxy** uses are also thanked.
 
 **bombie** would like to thank some of the people on iOSGods for providing **bombie** for good motivation and giving answers to some of it's questions. The project was eventually moved to GitHub to ensure more stable hold of the code and it's maintainer, but it will eventually be posted to iOSGods.
+
+## Important Disclaimer
+
+**This script is for educational purposes only! Nobody holds any responsibility for any bans, issues or problems caused by this cheat to anything. It was made to tinker with Bomber Friends's game security. It does not assume total safety and full stability for the script. Efforts have been made to document, stabilize and secure this script however it does not assure them!**
+
+This cheat does not violate upon Bomber Friends's intellectual property or copyright. 
