@@ -97,6 +97,10 @@ If you have heard of a better cheat, tell the maintainers in GitHub Discussions.
 
 1. Harder to setup than usual; unlike other mods which require a simple, it requires the setup of a whole proxy (and the programming language, libraries). **Coldie** has tried to simplify such a big step with the introduction of requirements.txt, easy code structure and other measures, however it will never be enough. As a bonus, setup needs to be done carefully and certain things need to be done right!
 2. Requires a computer, laptop or another machine to host the proxy. That machine should be always open with the proxy in case you wanna play. You need to be connected to the computer's malicious proxy instead of another proxy. If you use adblocking proxies, use an adblocking DNS instead.
+3. (**not Coldie's fault**, **does not happen for proper mitmproxy configurations**) A drawback of this cheat that **mitmproxy certificates** can and will likely not be trusted by Google domains which handle the payment. As a result of this, payments are not possible when using this cheat and some other features handled by external domains which do not trust this certificate may be impossible-to-do. As of now, payments are impossible and account OTP email verification has been getting less stable. This has also been happening with ad domains, with the effect being unconfirmed and untested. This issue is to **mitmproxy** and **other domain certificate trusting** and it's not in-scope with **Coldie**. Possible changes or modifications are getting investigated. In other words: some features using external domains that do not trust the **mitmproxy certificate** may be impossible-to-do. This issue can be fixed (a fix has yet to be found, a total fix) or lessened for some domains or things by trusting the local CA. **This issue may not happen to everybody. It depends on the certificate itself**
+
+As of now, Hyperkani domains trust the **mitmproxy certificate** and the app is not SSL pinned, so a drawback has not been raised for that.
+
 
 ## What is this project licensed under?
 
