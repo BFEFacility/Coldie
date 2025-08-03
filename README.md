@@ -87,20 +87,20 @@ If you have heard of a better cheat, tell the maintainers in GitHub Discussions.
 
 ### Benefits
 
-1. The best anti-ban as of now; it relies on server modifications to make it impossible to be banned and remain playing. It is literally not possible to be banned! Banned accounts can play using Coldie's anti-ban technology.
+1. The best anti-ban as of now; it relies on server modifications to make it impossible to be banned and remain playing. It is literally not possible to be banned! Banned accounts can play using **Coldie**'s anti-ban technology.
 2. A wider variety of cheats than all other Bomber Friends cheats!
-3. Isn't based off the version of the game unlike standard APKs or IPAs that are cheated, it can exploit any version that can be exploited!
+3. Isn't based off the version of the game unlike standard APKs or IPAs that are cheated, it can exploit any version that can be exploited! APKs/IPAs need to be remade for exploitation every month which takes longer. This works on the Apple application which has no IPA cheats as of now!
 4. Open source and customizable: the code is open source meaning that you don't have to worry about malware (the primary concern of modified games) and you can simply customize variables to cheat how you want, not how they want.
 5. Harder to patch and more stable compared to other mods which can easily cause kicks, the only feature which causes a **kickloop** (known as a 10x worse ban) is disabled and not recommended. The game puts more efforts into patching the other types of modding which are easier-to-patch and fought everyday unlike this type of modding!
 
 ## Drawbacks
 
-1. Harder to setup than usual; unlike other mods which require a simple , it requires the setup of a whole proxy (and the  of a programming language, libraries). Coldie has tried to simplify such a big step with the introduction of requirements.txt, easy code structure and other measures, however it will never be enough.
+1. Harder to setup than usual; unlike other mods which require a simple, it requires the setup of a whole proxy (and the programming language, libraries). **Coldie** has tried to simplify such a big step with the introduction of requirements.txt, easy code structure and other measures, however it will never be enough. As a bonus, setup needs to be done carefully and certain things need to be done right!
 2. Requires a computer, laptop or another machine to host the proxy. That machine should be always open with the proxy in case you wanna play. You need to be connected to the computer's malicious proxy instead of another proxy. If you use adblocking proxies, use an adblocking DNS instead.
 
 ## What is this project licensed under?
 
-This project is licensed under the **GPL** license. For a full breakdown of the license, see the **LICENSE** file.
+This project is licensed under the **GPL** v3 (General Public License v3). For a full breakdown of the license, see the **LICENSE** file.
 
 ## How do I install Coldie?
 
