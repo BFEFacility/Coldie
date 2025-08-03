@@ -121,5 +121,21 @@ injectedTutorialWonMedals = *put a integer here* (injectedTutorialWonMedals = 99
 
 5. Once changed, save the changes. That's it. All you needed to change was a couple of variables. Now, the script can correctly and precisely check and actually **modify** (since falsy values do not actually modify it)
 
+6. Run **mitmproxy** or **mitmweb** now with the way it was ran previously.
 
 All you need to know for the installation is that you simply need to have **Python** installed and **mitmproxy**, which most systems have for installation.
+
+## Usage
+
+You can now use it on your iOS or Android device! The proxy needs to be turned on (along with the machine) when using it. 
+
+1. Open your device settings
+2. Go to your proxy settings (most likely found in Internet or Wi-Fi section). You will use this proxy to sniff and modify game traffic as it does. Keep in mind both devices need to be in the same network, be able to communicate to each other (not blocked!) and not cause IP range problems or such problems. This part will be very important!
+3. Change your proxy IP and port in the settings to this:
+
+Proxy IP: 192.168.100.42 -> Example IP range for some private networks
+
+Proxy Port: 8080 -> This is the default mitmproxy port, mitmweb uses :8081 for the web UI. If you have changed the port number, set it to that port number.
+
+4. Check if you have internet connection. You may notice weird issues with your web browser telling you that you cannot connect with it since your connection is insecure. However, that's an **mitmproxy** issue (it's not an issue, it's SSL pinning or certificate distrust) and do not open up issues/contributions etc. about any **mitmproxy**-specific problem that cannot be fixed!
+5. If you do, reload the game if it was opened before. Open the game if it was not opened before. Give it some time to load and it will open up!
