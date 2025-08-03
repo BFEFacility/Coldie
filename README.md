@@ -106,6 +106,13 @@ This project is licensed under the **GPL** license. For a full breakdown of the 
 
 **Coldie** can be installed with the steps in **INSTALLATION.md**. The steps of the installation, setup and everything about using it is there!
 
+## Can I have some files about Coldie?
+
+Sure! This subsection covers every file that's not the script, the README or anything specified in the rest of this file in greater depth!
+
+**CONTRIBUTING.md** was added to comply with GitHub's Community Standards and some open source recommendations. It is the one-stop guide for everything contributing. It includes contribution rules and contribution tutorials!
+**requirements.txt** was added to comply with clean Python code and general package managing in Python. It includes the version of every package and dependency needed to smoothly run this script without causing problems!
+
 ## Coldie would like to thank...
 
 **bombie** is an amazing Python script which was the base of the entire project. It had many features that became the essentials of the proxy-based cheating, the proxy cheating era and Coldie itself. For that, Coldie would like you to star the project to show your appreciation! *The maintainer and owner of that project was me in a lost account, so I'm thanking my own project.*
