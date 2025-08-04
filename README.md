@@ -115,6 +115,7 @@ This project is licensed under the **GPL** v3 (General Public License v3). For a
 Sure! This subsection covers every file that's not the script, the README or anything specified in the rest of this file in greater depth!
 
 **CONTRIBUTING.md** was added to comply with GitHub's Community Standards and some open source recommendations. It is the one-stop guide for everything contributing. It includes contribution rules and contribution tutorials!
+
 **requirements.txt** was added to comply with clean Python code and general package managing in Python. It includes the version of every package and dependency needed to smoothly run this script without causing problems!
 
 ## Coldie would like to thank...
