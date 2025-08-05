@@ -65,8 +65,8 @@ def request(flow: http.HTTPFlow) -> None:
             ctx.log.error(e)
         if apiCloudScriptURLRequest["FunctionName"] == fashionPointHandler: # If the request's script is the fashion point giver...
             try:
-                apiCloudScriptURLRequest["FunctionParameter"]["points"] = fashionPoints if fashionPoints != False else apiCloudScriptURLRequest["FunctionParameter"]["points"] 
-                apiCloudScriptURLRequest["FunctionParameter"]["ad"] = bool(ad) if ad != False else apiCloudScriptURLRequest["FunctionParameter"]["ad"]
+                apiCloudScriptURLRequest["FunctionParameter"]["points"] = fashionPoints if fashionPoints else apiCloudScriptURLRequest["FunctionParameter"]["points"] 
+                apiCloudScriptURLRequest["FunctionParameter"]["ad"] = bool(ad) if ad else apiCloudScriptURLRequest["FunctionParameter"]["ad"]
                 ctx.log.info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
             except KeyError:
                 ctx.log.error("Coldie: the API has been changed and the result of the initial data cannot be found")
@@ -101,23 +101,23 @@ def response(flow: http.HTTPFlow) -> None:
                     if isinstance(apiCloudScriptURLResponse["data"]["FunctionResult"], str):
                         apiCloudScriptURLResponse["data"]["FunctionResult"] = loads(apiCloudScriptURLResponse["data"]["FunctionResult"])
                     
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium) if bomberium != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium) if bomberium else apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"]
 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if freespins != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if freespins else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if vipspins != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if vipspins else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems) if gems != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems) if gems else apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"]
 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals) if medals != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals) if medals else apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"]
 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"] = seasonPass if seasonPass != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"] = seasonPass if seasonPass else apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"]
 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP if XP != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP if XP else apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"]
                     
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 if costumes != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 if costumes else apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"]
                     
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] if recommendedVersion != False else apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] # Make the version become the version if the feature is not on
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] if recommendedVersion else apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] # Make the version become the version if the feature is not on
 
                     # ANTI-BAN 
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["banned"] = 0 # 0 is the same as False, this uses an integer since an integer is expected by the server
@@ -126,7 +126,7 @@ def response(flow: http.HTTPFlow) -> None:
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["banInfo"] = ""
 
                     # ALWAYS BOTS; EASY MEDAL FARMING
-                    if alwaysBots != False:
+                    if alwaysBots:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["botMatch"]["trophyLimit"] = int(999999) # If you're below 999,999 medals, only bots!
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["botMatch"]["dailyGameLimit"] = int(999999) # You can play with bots 999,999 games a day!
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["botMatch"]["maxLimit"] = int(999999) # You can play 999,999 games of bots before no bots!
