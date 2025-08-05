@@ -3,8 +3,6 @@
 # Python script that utilizes the mitmproxy API to cheat on Bomber Friends! It handles many cloud functions and abuses requests and responses.
 # It's not just actual hacks... it's visual ones! An anti-ban is paired too! This is the peak of Bomber Friends cheating!
 
-# THIS CODE DOES NOT HOLD ANY RESPONSIBILITY OVER ACCOUNT BANS, TERMINATIONS OR OTHER PROBLEMS THAT ARISE. THIS CODE IS FOR EDUCATIONAL PURPOSES ONLY AND WAS MADE TO LEARN PROXY TRAFFIC IN BETTER DETAIL. IT DOES NOT VIOLATE ANY COPYRIGHT.
-
 try:
     from mitmproxy import http, ctx
     from json import dumps, loads
