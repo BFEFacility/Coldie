@@ -1,5 +1,9 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
+# WORK ON THIS PROJECT IS TEMPORARILY DELAYED
+
+New features are getting rarer and rarer due to various factors including **hard testing**, **long work on code** and **general game anti-cheat**. Due to such, this project is delayed for a week. Work will still continue and this repository will not be archived. Unless a breakthrough will happen, the code has critical bugs or for urgent code improvements, it will take at least a week for activity to get back to normal levels after **behind the scenes testing, coding and fixing** is done.
+
 # The new era of Bomber Friends cheating
 
 **Coldie** is a maintained and updated version of **bombie**, the original Bomber Friends proxy-based cheat. This is a entirely new vector for this game's cheating that has firstly been created by **bombie**. Unlike other cheaters who have tried to modify the game's binary or inject their own Java code which have been banned many times before... They have been getting weaker and weaker with new anti-cheat updates and due to many other factors. The introduction of the checksum will totally wipe this era and the methods used by it. Talking about the last blow: the failure of their anti-ban which has been wiping cheaters left and right. However, there has been one vector of cheating that hasn't been tried nor fully secured by the game's servers since it was unexpected. That's proxy cheating. 
