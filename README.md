@@ -2,7 +2,7 @@
 
 # WORK ON THIS PROJECT IS TEMPORARILY DELAYED
 
-New features are getting rarer and rarer due to various factors including **hard testing**, **long work on code** and **general game anti-cheat**. Due to such, this project is delayed for a week. Work will still continue and this repository will not be archived. Unless a breakthrough will happen, the code has critical bugs or for urgent code improvements, it will take at least a week for activity to get back to normal levels after **behind the scenes testing, coding and fixing** is done.
+New features are getting rarer and rarer due to various factors including **hard testing**, **long work on code** and **general game anti-cheat**. Due to such, this project is delayed for a week. Work will still continue and this repository will not be archived. Unless a breakthrough will happen, the code has critical bugs or for urgent code improvements, it will take at least a week for activity to get back to *normal* (maybe) levels after **behind the scenes testing, coding and fixing** is done.
 
 # The new era of Bomber Friends cheating
 
