@@ -135,3 +135,5 @@ Sure! This subsection covers every file that's not the script, the README or any
 **This script is for educational purposes only! Nobody holds any responsibility for any bans, issues or problems caused by this cheat to anything. It was made to tinker with Bomber Friends's game security. It does not assume total safety and full stability for the script. Efforts have been made to document, stabilize and secure this script however it does not assure them!**
 
 This cheat does not violate upon Bomber Friends's intellectual property or copyright. 
+
+*This script is part of the Bomber Friends Exploration facility*
