@@ -5,7 +5,7 @@
 
 try:
     from mitmproxy import http, ctx
-    from json import dumps, loads
+    from json import dumps, loads # WHY DO WE KEEP STANDARD LIBRARY MODULES HERE? SUCH MODULES CAN ONLY BE REMOVED VIA FORCE AND BY THEN, THEIR MACHINE WOULD BE DEAD ALREADY! TODO: GET OUT OF TRY-EXCEPT CATCH
     from json.decoder import JSONDecodeError
 except ModuleNotFoundError:
     raise SystemExit("The mitmproxy or json modules were not found. The cause is likely the fact that mitmproxy wasn't installed")
@@ -55,7 +55,7 @@ def request(flow: http.HTTPFlow) -> None:
             try:
                 apiCloudScriptURLRequest = loads(dumps(flow.response.get_text()))
             except JSONDecodeError:
-                ctx.log.error("Coldie: nothing about this request is right and Coldie cannot intercept it!")
+                ctx.log.error("Coldie: nothing works!")
                 flow.kill() # Kills the flow
             except Exception as e:
                 ctx.log.error(e)
