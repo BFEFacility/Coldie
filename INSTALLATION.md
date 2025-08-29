@@ -50,10 +50,10 @@ hint: See PEP 668 for the detailed specification.
 
 That means your system is a fork of another system and the system is externally managed. You should check this StackOverflow post which provides many solutions to this issue: https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3. I'd recommend setting up a Virtual Environment (search it up or find out how to do in the provided post) to fix this error and the breakage of such packages. The most reckless yet laziest solution would be to use the *--break-system-packages* flag which could risk breaking your Python installation or OS. However, the rule of thumb is that if you see any errors about conflicts, remove the installed packages and nothing will have ever happened.
 
-7. You are all done! To set the proxy up, run this command: `mitmweb --script ./Coldie.py` or `mitmweb -s ./Coldie.py`. You only need the binary now since every relevant package (and CLI tool) the code uses has been installed. You can now remove the other files which are unnecessary for the actual tool to run except the binary and all of it's packages. **Keep the proxy on when it should be on and off when it should be off when playing**
-8. **Ctrl+C** the proxy since there is more work to do (**setup**, **phone setup** etc.)
+7. You are all done! To set the proxy up, run this command: `mitmweb --script ./Coldie.py` or `mitmweb -s ./Coldie.py` (or use it's absolute path). You only need the binary now since every relevant package (and CLI tool) the code uses has been installed. You can now remove the other files which are unnecessary for the actual tool to run except the binary and all of it's packages. **Keep the proxy on when it should be on and off when it should be off when playing**
+8. **Ctrl+C** the proxy since there is more work to do (**setup**, **phone setup** etc.). That was just the initial base setup.
    
-RECOMMENDED. You can put the binary in a easy-to-remember place which doesn't get cleaned up. You can put it in `/bin` or the directory of the binaries.
+RECOMMENDED. You can put the binary in a easy-to-remember place which doesn't get cleaned up!. You can put it in `/bin` or the directory of the binaries.
 
 ## Installation on Macintosh systems
 
@@ -137,5 +137,6 @@ Proxy IP: 192.168.100.42 -> Example IP range for some private networks
 
 Proxy Port: 8080 -> This is the default mitmproxy port, mitmweb uses :8081 for the web UI. If you have changed the port number, set it to that port number.
 
-4. Check if you have internet connection. You may notice weird issues with your web browser telling you that you cannot connect with it since your connection is insecure. However, that's an **mitmproxy** issue (it's not an issue, it's SSL pinning or certificate distrust) and do not open up issues/contributions etc. about any **mitmproxy**-specific problem that cannot be fixed!
-5. If you do, reload the game if it was opened before. Open the game if it was not opened before. Give it some time to load and it will open up!
+4. Check if you have internet connection. You may notice weird issues with your web browser telling you that you cannot connect with it since your connection is insecure. However, that's an **mitmproxy** issue (it's not an issue, it's SSL pinning or certificate distrust) and do not open up issues/contributions etc. about any **mitmproxy**-specific problem that cannot be fixed! Simply use external ways to disable SSL pinning, not Coldie's fault.
+
+6. If you do, reload the game if it was opened before. Open the game if it was not opened before. Give it some time to load and it will open up!
