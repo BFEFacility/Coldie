@@ -1,9 +1,5 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
-# WORK ON THIS PROJECT IS TEMPORARILY DELAYED
-
-New features are getting rarer and rarer due to various factors including **hard testing**, **long work on code** and **general game anti-cheat**. Due to such, this project is delayed for a week. Work will still continue and this repository will not be archived. Unless a breakthrough will happen, the code has critical bugs or for urgent code improvements, it will take at least a week for activity to get back to *normal* (maybe) levels after **behind the scenes testing, coding and fixing** is done.
-
 # The new era of Bomber Friends cheating
 
 **Coldie** is a maintained and updated version of **bombie**, the original Bomber Friends proxy-based cheat. This is a entirely new vector for this game's cheating that has firstly been created by **bombie**. Unlike other cheaters who have tried to modify the game's binary or inject their own Java code which have been banned many times before... They have been getting weaker and weaker with new anti-cheat updates and due to many other factors. The introduction of the checksum will totally wipe this era and the methods used by it. Talking about the last blow: the failure of their anti-ban which has been wiping cheaters left and right. However, there has been one vector of cheating that hasn't been tried nor fully secured by the game's servers since it was unexpected. That's proxy cheating. 
@@ -90,17 +86,33 @@ One of our main arguments is that: "since this script and approach has never bee
 
 If you have heard of a better cheat, tell the maintainers in GitHub Discussions. **Unlimited Nukes** and such are a thing of the past. Not every cheat can be implemented or added due to the differences of this type of cheat compared to that type of cheat.
 
+### Quick Note about Android Cheating
+
+Sources: [Google will block sideloading of unverified Android apps starting next year](https://arstechnica.com/gadgets/2025/08/google-will-block-sideloading-of-unverified-android-apps-starting-next-year/), [Official Developer Verification](https://developer.android.com/developer-verification/)
+
+If Google's new bad decision to block the sideloading of APKs goes through under the false sense of "*security*", the APKs which aren't verified **may be impossible to install**. This new era would make it impossible for anything that isn't in the Play Store to be installed. This will render the installation of game cheats, unofficial apps, open-source apps not on the App Store, rooting apps and a lot more (if apps are used for rooting, old Android version needed) ***impossible***.
+
+Google, remember that people have never accepted bad in the internet, in one way or two they have bundled up together and with all their skills, have done something. Custom ROMs , degoogling and rooting will evolve to further deal with this. Not only that, but the pressure mounting up on your legal team about third-party app stores would render a chunk of this policy (if not the entirety of it) moot. Android is open source and it won't take long for somebody to modify the code and remove everything related to the block. It won't be hard.
+
+Why did people switch over Android? A pretty big reason was sideloading, explore new worlds and apps without the need of complicated jailbreaks and what iOS carries over. Sideloading is a great thing standing for Android that has been used against Apple since forever. 
+
+#### How this will work out for game cheats
+
+Hobbyists and students **can apply for this program**. There's just a few problems: it will take further time and resources for this new problem for the hobbyists, some game cheat makers don't/can't give out a barrage of their accurate personal information (legal name, address, email address, phone number, ID (depends)) to break their anonymity and to be used against them, some game cheat makers don't have an ID and those weren't even the breaking points: *These apps won't get accepted.* Apart from being a bad thing for Google since they want to "combat" this (same goes for rooting apps and so on), the package name of the cheat would need to be changed to not fit the original one and... the signing keys won't get accepted since they are of another app! Game cheat makers who want to remain anonymous also need to create a Google account.
+
+However, people will forever stay creative. They'll break out of their shackles and if they can't, they'll cheat another way. They may resort to using ***mitmproxy*** scripts (proxy cheating) for non SSL pinning apps and for ones that have a problem with this, the app would need to be modified from the user's side, they may resort to using ***bots, auto clickers and automation software*** to automate repetitive tasks or bot things with verified APKs.
+
 ### Benefits
 
 1. The best anti-ban as of now; it relies on server modifications to make it impossible to be banned and remain playing. It is literally not possible to be banned! Banned accounts can play using **Coldie**'s anti-ban technology.
 2. A wider variety of cheats than all other Bomber Friends cheats!
 3. Isn't based off the version of the game unlike standard APKs or IPAs that are cheated, it can exploit any version that can be exploited! APKs/IPAs need to be remade for exploitation every month which takes longer. This works on the Apple application which has no IPA cheats as of now!
 4. Open source and customizable: the code is open source meaning that you don't have to worry about malware (the primary concern of modified games) and you can simply customize variables to cheat how you want, not how they want.
-5. Harder to patch and more stable compared to other mods which can easily cause kicks, the only feature which causes a **kickloop** (known as a 10x worse ban) is disabled and not recommended. The game puts more efforts into patching the other types of modding which are easier-to-patch and fought everyday unlike this type of modding!
+5. Harder to patch and more stable compared to other mods which can easily cause kicks, the only feature which causes a **kickloop** (known as a 10x worse ban) is disabled by default and not recommended. The game puts more efforts into patching the other types of modding which are easier-to-patch and fought everyday unlike this type of modding!
 
 ## Drawbacks
 
-1. Harder to setup than usual; unlike other mods which require a simple, it requires the setup of a whole proxy (and the programming language, libraries). **Coldie** has tried to simplify such a big step with the introduction of requirements.txt, easy code structure and other measures, however it will never be enough. As a bonus, setup needs to be done carefully and certain things need to be done right!
+1. Harder to setup than usual; unlike other mods which are incredibly simple to setup often including a simple AFK, it requires the setup of a whole proxy (and the programming language, libraries). **Coldie** has tried to simplify such a big step with the introduction of requirements.txt, easy code structure and other measures, however it will never be enough. As a bonus, setup needs to be done carefully and certain things need to be done right!
 2. Requires a computer, laptop or another machine to host the proxy. That machine should be always open with the proxy in case you wanna play. You need to be connected to the computer's malicious proxy instead of another proxy. If you use adblocking proxies, use an adblocking DNS instead.
 3. Some external domains that handle payments, clan data and OTP data implement SSL pinning and do not trust **mitmproxy**'s certificate. SSL pinning needs to be disabled through external ways or sources.
 
