@@ -103,7 +103,7 @@ def response(flow: http.HTTPFlow) -> None:
 
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if freespins else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
 
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if vipspins else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
+                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"] = int(vipspins) if vipspins else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"]
 
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems) if gems else apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"]
 
