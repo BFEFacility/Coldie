@@ -136,4 +136,4 @@ Sure! This subsection covers every file that's not the script, the README or any
 
 This cheat does not violate upon Bomber Friends's intellectual property or copyright. 
 
-*This script is part of the Bomber Friends Exploration facility*
+*This script is part of the Bomber Friends Exploitation facility*
