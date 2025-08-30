@@ -95,21 +95,7 @@ injectedTutorialWonMedals = 999999 # Medals won by injected tutorial (visual)
 
 This code will be explained shortly.
 
-4. **apiUrl** and **apiCloudScriptURL** are variables which hold the API endpoint (you don't need to worry about them). You will need to change the variables below it:
-
-bomberium = *put a integer here* (bomberium = 1000000)
-freespins = *put a integer here* (freespins = 1000000)
-vipspins = *put a integer here* (vipspins = 1000000)
-seasonPass = *put a boolean here (like True/False)* (seasonPass = True)
-XP = *put a integer here* (XP = 100000)
-gems = *put a integer here* (gems = 1000000)
-medals = *put a integer here* (medals = 1000000)
-alwaysBots = *put a boolean here (like True/False)* (alwaysBots = True)
-costumes = *put a boolean here (like True/False*) (costumes = False)
-recommendedVersion = *put a boolean here (like True/False)* (recommendedVersion = True)
-
-fashionPoints = *put a integer here (between 1-100)* (fashionPoints = 100)
-ad = *put a boolean here (like True/False)* (ad = True)
+4. **apiUrl** and **apiCloudScriptURL** are variables which hold the API endpoint (you don't need to worry about them). You will need to change the variables below it.
 
 **These last variables are only for new players and they're visual. There's no good reason for most players to change these values and only new players can be affected by these last exploits! They are also (mostly) undocumented in value ranges**
 
