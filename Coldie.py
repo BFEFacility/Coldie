@@ -98,22 +98,30 @@ def response(flow: http.HTTPFlow) -> None:
                 try:
                     if isinstance(apiCloudScriptURLResponse["data"]["FunctionResult"], str):
                         apiCloudScriptURLResponse["data"]["FunctionResult"] = loads(apiCloudScriptURLResponse["data"]["FunctionResult"])
+
+                    if bomberium:
+                         apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium)
+
+                    if freespins:
+                         apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) 
                     
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium) if bomberium else apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"]
-
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) if freespins else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"]
-
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"] = int(vipspins) if vipspins else apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"]
-
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems) if gems else apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"]
-
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals) if medals else apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"]
-
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP if XP else apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"]
+                    if vipspins:
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"] = int(vipspins)
+                        
+                    if gems:
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems)
                     
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 if costumes else apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"]
-                    
-                    apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] if recommendedVersion else apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] # Make the version become the version if the feature is not on
+                    if medals:
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals)
+
+                    if XP:
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP 
+
+                    if costumes:
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 # Maybe, make this more reliable when the game ages beyond 3000 items?
+
+                    if recommendedVersion:
+                         apiCloudScriptURLResponse["data"]["FunctionResult"]["version"] = apiCloudScriptURLResponse["data"]["FunctionResult"]["recommended"] # Make the version become the version if the feature is not on
 
                     # ANTI-BAN 
                     apiCloudScriptURLResponse["data"]["FunctionResult"]["banned"] = 0 # 0 is the same as False, this uses an integer since an integer is expected by the server
