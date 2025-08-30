@@ -3,10 +3,11 @@
 # Python script that utilizes the mitmproxy API to cheat on Bomber Friends! It handles many cloud functions and abuses requests and responses.
 # It's not just actual hacks... it's visual ones! An anti-ban is paired too! This is the peak of Bomber Friends cheating!
 
+from json import dumps, loads 
+from json.decoder import JSONDecodeError
+
 try:
     from mitmproxy import http, ctx
-    from json import dumps, loads # WHY DO WE KEEP STANDARD LIBRARY MODULES HERE? SUCH MODULES CAN ONLY BE REMOVED VIA FORCE AND BY THEN, THEIR MACHINE WOULD BE DEAD ALREADY! TODO: GET OUT OF TRY-EXCEPT CATCH
-    from json.decoder import JSONDecodeError
 except ModuleNotFoundError:
     raise SystemExit("The mitmproxy or json modules were not found. The cause is likely the fact that mitmproxy wasn't installed")
     
