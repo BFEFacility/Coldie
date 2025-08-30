@@ -75,7 +75,6 @@ retrieveData = "getInitialData" # The only cloud script function which gets the 
 bomberium = False # Amount of bomberium (visual)
 freespins = False # Amount of free (non-VIP) spins (visual)
 vipspins = False # Amount of 150 gem (VIP) spins (visual)
-seasonPass = False # Is season pass enabled? (cannot claim rewards, fashion show rewards doubled and VIP icon is shown)
 XP = False # XP which determines the level (not the rank) which gives you pretty good multiplayer benefits
 gems = False # Gems (known as EL) (visual)
 medals = False # Medals, also known as trophies in the game code (visual, chests can't be claimed (visual unless you've reached that medal range), matchmaking changes (unconfirmed), not on leaderboard) 
