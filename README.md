@@ -75,8 +75,7 @@ It is being maintained and it adds on to bombie's amazing legacy. Many other fea
 There are a few other things this project would like to complete, apart from small things specified in some of the code comments, this talks about the big stuff:
 
 1. Have a **stable release**, it's in alpha even after some time due to the long time it takes to test existing features and the time it takes to make new features.
-3. **Add many more cheats**. Due to the current state of cheating in the modern day, the cheats Coldie can do mostly range from visual. However, attempts are being made to have visual scripts work and add more cheats (visual or non-visual). However, we can modify the metadata (less important data), for example: modify the game's version so that you can play it on any version, more visual cheats etc. 
-4. *Improve* the code. The latest and biggest change is to remove the type checking in the ternary operators which causes unexpected issues with strings or other booleans which if we ever implement a string value, it will only return unexpected booleans. A fix is planned yet not pushed in any branch. This fix is very important. It makes code *shorter*, *smarter* and more *Pythonic*.
+2. **Add many more cheats**. Due to the current state of cheating in the modern day, the cheats Coldie can do mostly range from visual. However, attempts are being made to have visual scripts work and add more cheats (visual or non-visual). However, we can modify the metadata (less important data), for example: modify the game's version so that you can play it on any version, more visual cheats etc. 
 
 ## What's so different about this form of cheating?
 
