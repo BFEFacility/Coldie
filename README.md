@@ -23,7 +23,7 @@ One thing that sets this cheat from other cheats is the fact that it has **visua
 1. 0-∞ Bomberium (**Visual**)
 2. 0-∞ Free Spins (**Visual**)
 3. 0-∞ VIP Spins (**Visual**)
-4. Season Pass (**NOT WORKING NOW**), contains all the benefits of the season pass (double fashion points, event lives etc.) however claiming the tiers will return an error (impossible) (**Unbannable**) (**Safe**)
+4. Season Pass (**Working**), contains all the benefits of the season pass (double fashion points, event lives etc.) however claiming the tiers will return an error (impossible) (**Unbannable**) (**Safe**)
 5. XP (**Working**), specifies the XP of the account (XP = level), 99999 XP is level 10, this gives you good multiplayer benefits (**Unbannable**) (**Safe**)
 6. Gems (**Visual**)
 7. Medals (**Visual**)
