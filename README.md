@@ -1,4 +1,6 @@
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
+
+![GitHub contributors](https://img.shields.io/github/contributors/sandStoop/Coldie) ![GitHub last commit](https://img.shields.io/github/last-commit/sandStoop/Coldie)
 
 # The new era of Bomber Friends cheating
 
