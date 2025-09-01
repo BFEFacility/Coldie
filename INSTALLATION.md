@@ -77,6 +77,7 @@ freespins = False # Amount of free (non-VIP) spins (visual)
 vipspins = False # Amount of 150 gem (VIP) spins (visual)
 XP = False # XP which determines the level (not the rank) which gives you pretty good multiplayer benefits
 gems = False # Gems (known as EL) (visual)
+seasonPass = False # Is season pass enabled? (cannot claim rewards, fashion show rewards doubled and VIP icon is shown)
 medals = False # Medals, also known as trophies in the game code (visual, chests can't be claimed (visual unless you've reached that medal range), matchmaking changes (unconfirmed), not on leaderboard) 
 alwaysBots = False # Always match with bots; no match or medal limitations -> TODO: Test it in higher medal range
 costumes = False # Get all costumes (it's a string value by design and requirement), this has been disabled since it has an extremely high chance of a kickloop (instant kick from any type of play, different from a ban) (AFFECTED, UNRECOMMENDED)
