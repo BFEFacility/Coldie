@@ -31,7 +31,7 @@ One thing that sets this cheat from other cheats is the fact that it has **visua
 9. All Costumes (**Working**), always gives you every costume (capped at 3,000 items which is enough for now, can be increased), this feature is extremely likely to cause an kickloop (**Very Unsafe**) 
 10. Maximum Fashion Points (**Working**), always gives you (100*2) = 200 fashion points in every fashion show entry, nothing matters, always keep it on everytime you apply for the fashion show (**Unbannable**) (**Very Safe**)
 11. Anti-Ban (**Working**), always keeps your account unbanned and removes all ban reasons if there is, this is the most *stable* and *best* feature that only Coldie has implemented (**UNBANNABLE**) (**Safe**) (**DON'T TURN OFF**)
-12. Recommended Version (**Stable**), always sets your version as the latest version allowing you to play in older versions of the game (new features won't be there, crashes and problems may be caused due to faulty code in other versions!) (**Unbannable**) (**Safe**) (**Not Tested Yet**)
+12. Recommended Version (**Stable**), always sets your version as the latest version. This does not work for most versions of the game however it's a safe feature to keep (**Unbannable**) (**Safe**) (**Not Reliably Tested**)
     
 There are also some features about the new player's tutorial (visual features that inject into the tutorial):
 
