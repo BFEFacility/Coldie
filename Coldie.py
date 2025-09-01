@@ -112,7 +112,7 @@ def response(flow: http.HTTPFlow) -> None:
                     if gems:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems)
 
-                    if seasonpass:
+                    if seasonPass:
                         apiCloudScriptURLResponse["seasonP"]["seasonPass"] = bool(seasonpass) # This fixes the API changes, using seasonP instead of seasonD.
                         
                     if medals:
