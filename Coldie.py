@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Coldie v1.0-beta
+# Coldie v1.0.0-beta
 # Python script that utilizes the mitmproxy API to cheat on Bomber Friends! It handles many cloud functions and abuses requests and responses.
 # It's not just actual hacks... it's visual ones! An anti-ban is paired too! This is the peak of Bomber Friends cheating!
 
