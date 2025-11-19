@@ -24,6 +24,6 @@ Coldie is a project that has been started not in the hopes of earning money, it 
 4. Compare them carefully (you likely have!) and create a pull request of it with a good title and nice description of all the changes and improvements.
 5. You should argue with maintainers or others about why this iteration of the repository is better. This improves the chances of your PR being added, reduces work on our end (and we will be nicer to you!) and is overall more documented with more history.
 
-You can also use **git** for the same task! However, be prepared to do some command hunting if you're not experienced at **git**. 
+You can also use **git** for the same task! Please sign your commits if so.
 
 **Coldie** would like to greatly thank you for your interest in this repository. A contribution can be a small typo fix (there are a lot of them, please add more typo fixes or better changes to reduce PR checking and other factors) or a new feature.
