@@ -16,9 +16,7 @@ Coldie is a project that has been started not in the hopes of earning money, it 
 
 ## How to Contribute
 
-**This tutorial uses the GitHub Web UI!**
-
-1. Fork this GitHub repository using the **GitHub Web UI** or **git**. The **GitHub Web UI** is recommended since it's the used format for this project and code is edited with a seperate text editor and not **GitHub Web UI**.
+1. Fork this GitHub repository using the **GitHub Web UI** or **git**. 
 2. Edit the files that should be edited. Our main focus is the change of the main Python file, requirements.txt (if library versions or libraries were changed, added or removed). You can focus on the README.md and INSTALLATION.md. Please do good changes to the Markdown files, it's recommended.
 3. Open a new PR (pull request) to **Coldie**, the repository you will contribute to is the main repository and compare it with your modified forks.
 4. Compare them carefully (you likely have!) and create a pull request of it with a good title and nice description of all the changes and improvements.
