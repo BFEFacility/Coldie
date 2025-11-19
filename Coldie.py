@@ -101,25 +101,40 @@ def response(flow: http.HTTPFlow) -> None:
                         apiCloudScriptURLResponse["data"]["FunctionResult"] = loads(apiCloudScriptURLResponse["data"]["FunctionResult"])
 
                     if bomberium:
-                         apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium)
-
+                        if isinstance(bomberium, (int, float)):
+                            apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium)
+                        else:
+                            ctx.log.warn("Coldie: The bomberium amount needs to be an integer or floating-point integer. Ignoring")
+                            
                     if freespins:
-                         apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) 
-                    
+                        if isinstance(freespins, (int, float)):
+                            apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) 
+                        else:
+                            ctx.log.warn("Coldie: The free spin amount needs to be an integer or floating-point integer. Ignoring")
+                            
                     if vipspins:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"] = int(vipspins)
-                        
+                        if isinstance(vipspins, (int, float)):
+                            apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"] = int(vipspins)
+                        else:
+                            ctx.log.warn("Coldie: The VIP spin amount needs to be an integer or floating-point integer. Ignoring")
+                            
                     if gems:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems)
-
+                        if isinstance(gems, (int, float)):
+                            apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems)
+                        else:
+                            ctx.log.warn("Coldie: The gem amount needs to be an integer or floating-point integer. Ignoring")
+                            
                     if seasonPass:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"] = True # This fixes the API changes, using seasonD
                         
                     if medals:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals) 
-
+                        if isinstance(medals, (int, float)):
+                            apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals) 
+                        else:
+                            ctx.log.warn("Coldie: The gem amount needs to be an integer or floating-point integer. Ignoring")
+                            
                     if XP:
-                        apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP 
+                        apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP # TODO: Verify if the XP is an integer, it's weird that I left it like this
 
                     if costumes:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["custItems"] = "1" * 3000 # Maybe, make this more reliable when the game ages beyond 3000 items?
@@ -176,3 +191,4 @@ def response(flow: http.HTTPFlow) -> None:
 
         else:
             ctx.log.error("Coldie: non-ok status code has been returned pre-modification!")
+            
