@@ -80,10 +80,11 @@ There are a few other things this project would like to complete, apart from sma
 
 1. Have a **stable release**, it's in alpha even after some time due to the long time it takes to test existing features and the time it takes to make new features.
 2. **Add many more cheats**. Due to the current state of cheating in the modern day, the cheats Coldie can do mostly range from visual. However, attempts are being made to have visual scripts work and add more cheats (visual or non-visual). However, we can modify the metadata (less important data), for example: modify the game's version so that you can play it on any version, more visual cheats etc. 
-
+3. Use a language like *TOML* or *YAML* to store the data. These data serialization languages also used for configuration are nifty, give more fine-tuned and grained control to the user and require less technical expertise while debloating the code! This in the works and the only thing left is handling the data in the code itself.
+ 
 ## What's so different about this form of cheating?
 
-The special thing is that it has never been tried before. Every other cheat has included Java script injection, hex editing, game file modification, texture modification and things that have modified the game **inside of it**. Other attempted cheats such as memory editors don't work due to server side validation. This form of cheating is new to the game and in fact, it's a very new form of cheating (programmatically using the mitmproxy API instead of manual proxy cheating). 
+The special thing is that it has never been tried before. Every other cheat has included Javascript injection, hex editing, game file modification, texture modification and things that have modified the game **inside of it**. Other attempted cheats such as memory editors don't work due to server side validation. This form of cheating is new to the game and in fact, it's a very new form of cheating (programmatically using the mitmproxy API instead of manual proxy cheating). 
 
 One of our main arguments is that: "since this script and approach has never been tried before, they haven't fully validated the server against it; they have been fighting against the most obvious forms of cheaters using their valuable time, resources and funding and not this type of it". This approach has never been seen before so it has never been fought. Also, fighting against this type of cheating is harder than fighting their cheats which can be easily patched with the introduction of **checksums** and with more complicated server logging. This is way harder to patch since it modifies the server's response and keeps the client's request in bound.
 
