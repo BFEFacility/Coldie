@@ -6,8 +6,11 @@
 from json import dumps, loads 
 from json.decoder import JSONDecodeError
 
+# https://github.com/BFEFacility/Coldie/issues/7 and https://docs.mitmproxy.org/stable/addons/api-changelog/#mitmproxy-90
+from logging import info, warning, error # The ctx logging module shouldn't be used
+
 try:
-    from mitmproxy import http, ctx
+    from mitmproxy import http
 except ModuleNotFoundError:
     raise SystemExit("The mitmproxy module wasn't found. The cause is likely attributed to the fact that mitmproxy isn't installed")
     
@@ -47,53 +50,53 @@ injectedTutorialWonMedals = 999999 # Medals won by injected tutorial (visual)
 
 def request(flow: http.HTTPFlow) -> None:
     if flow.request.pretty_url.endswith(apiCloudScriptURL):
-        ctx.log.info("Coldie: found request!")
-        ctx.log.info("checking the request's cloud script...")
+        info("Coldie: found request!")
+        info("checking the request's cloud script...")
         try:
             apiCloudScriptURLRequest = loads(flow.request.get_text())
         except JSONDecodeError:
-            ctx.log.warn("Coldie: this endpoint has returned undecodable JSON. this is a very weird and uncommon issue which has been caused due to API breakages, trying workaround...")
+            warning("Coldie: this endpoint has returned undecodable JSON. this is a very weird and uncommon issue which has been caused due to API breakages, trying workaround...")
             try:
                 apiCloudScriptURLRequest = loads(dumps(flow.response.get_text()))
             except JSONDecodeError:
-                ctx.log.error("Coldie: nothing works!")
+                error("Coldie: nothing works!")
                 flow.kill() # Kills the flow
             except Exception as e:
-                ctx.log.error(e)
+                error(e)
         except Exception as e:
-            ctx.log.error(e)
+            error(e)
         if apiCloudScriptURLRequest["FunctionName"] == fashionPointHandler: # If the request's script is the fashion point giver...
             try:
                 apiCloudScriptURLRequest["FunctionParameter"]["points"] = fashionPoints if fashionPoints else apiCloudScriptURLRequest["FunctionParameter"]["points"] 
                 apiCloudScriptURLRequest["FunctionParameter"]["ad"] = bool(ad) if ad else apiCloudScriptURLRequest["FunctionParameter"]["ad"]
-                ctx.log.info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
+                info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
             except KeyError:
-                ctx.log.error("Coldie: the API has been changed and the result of the initial data cannot be found")
+                error("Coldie: the API has been changed and the result of the initial data cannot be found")
             except Exception as e:
-                ctx.log.error(e)
+                error(e)
             flow.request.text = dumps(apiCloudScriptURLRequest)
-            ctx.log.info("Coldie: INJECTED REQUEST SENT TO SERVER! [2/2] :D")
+            info("Coldie: INJECTED REQUEST SENT TO SERVER! [2/2] :D")
         else: # TODO: Add more requests to hook...
-            ctx.log.warn("Coldie: as of now, Coldie doesn't support other exploitable functions!")
+            warning("Coldie: as of now, Coldie doesn't support other exploitable functions!")
 
 def response(flow: http.HTTPFlow) -> None:
     if flow.request.pretty_url.endswith(apiCloudScriptURL):
-        ctx.log.info("Coldie: found api endpoint!")
-        ctx.log.info("Coldie: checking the entire cloud script...")
+        info("Coldie: found api endpoint!")
+        info("Coldie: checking the entire cloud script...")
         try:
             apiCloudScriptURLResponse = loads(flow.response.get_text())
         except JSONDecodeError:
-            ctx.log.warn("Coldie: this endpoint has returned undecodable JSON. this is a very common issue due to bad return value however there's a workaround...")
+            warning("Coldie: this endpoint has returned undecodable JSON. this is a very common issue due to bad return value however there's a workaround...")
             try:
                 apiCloudScriptURLResponse = loads(dumps(flow.response.get_text())) # Workaround for the currently bad JSON for Python's json.loads()
             except JSONDecodeError:
-                ctx.log.error("Coldie: nothing works!")
+                error("Coldie: nothing works!")
                 flow.kill() # kills the entire flow and nothing is sent!
             except Exception as e:
-                ctx.log.error(e)
+                error(e)
                 flow.kill() # if the workaround doesn't work... why should it keep going? if no approach works... why bother?
         except Exception as e:
-            ctx.log.error(e)
+            error(e)
         if flow.response.status_code == int(200): # If the response doesn't reject or decline the value, should be checked via the status code not from the request!
             if apiCloudScriptURLResponse["data"]["FunctionName"] == retrieveData:
                 try:
@@ -104,25 +107,25 @@ def response(flow: http.HTTPFlow) -> None:
                         if isinstance(bomberium, (int, float)):
                             apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(bomberium)
                         else:
-                            ctx.log.warn("Coldie: The bomberium amount needs to be an integer or floating-point integer. Ignoring")
+                            warning("Coldie: The bomberium amount needs to be an integer or floating-point integer. Ignoring")
                             
                     if freespins:
                         if isinstance(freespins, (int, float)):
                             apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["rewardspins"] = int(freespins) 
                         else:
-                            ctx.log.warn("Coldie: The free spin amount needs to be an integer or floating-point integer. Ignoring")
+                            warning("Coldie: The free spin amount needs to be an integer or floating-point integer. Ignoring")
                             
                     if vipspins:
                         if isinstance(vipspins, (int, float)):
                             apiCloudScriptURLResponse["data"]["FunctionResult"]["rewardwheel"]["vipspins"] = int(vipspins)
                         else:
-                            ctx.log.warn("Coldie: The VIP spin amount needs to be an integer or floating-point integer. Ignoring")
+                            warning("Coldie: The VIP spin amount needs to be an integer or floating-point integer. Ignoring")
                             
                     if gems:
                         if isinstance(gems, (int, float)):
                             apiCloudScriptURLResponse["data"]["FunctionResult"]["EL"] = int(gems)
                         else:
-                            ctx.log.warn("Coldie: The gem amount needs to be an integer or floating-point integer. Ignoring")
+                            warning("Coldie: The gem amount needs to be an integer or floating-point integer. Ignoring")
                             
                     if seasonPass:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["seasonD"]["seasonPass"] = True # This fixes the API changes, using seasonD
@@ -131,7 +134,7 @@ def response(flow: http.HTTPFlow) -> None:
                         if isinstance(medals, (int, float)):
                             apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(medals) 
                         else:
-                            ctx.log.warn("Coldie: The gem amount needs to be an integer or floating-point integer. Ignoring")
+                            warning("Coldie: The gem amount needs to be an integer or floating-point integer. Ignoring")
                             
                     if XP:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["xp"] = XP # TODO: Verify if the XP is an integer, it's weird that I left it like this
@@ -157,16 +160,16 @@ def response(flow: http.HTTPFlow) -> None:
                     else:
                         pass
 
-                    ctx.log.info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
+                    info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
                 except KeyError:
-                    ctx.log.error("Coldie: the API has been changed and the result of the initial data cannot be found")
+                    error("Coldie: the API has been changed and the result of the initial data cannot be found")
                 except Exception as e:
-                    ctx.log.error(e)
+                    error(e)
                 try:
                     flow.response.text = dumps(apiCloudScriptURLResponse)
-                    ctx.log.info("Coldie: INJECTED RESPONSE SENT TO CLIENT! [2/2] :D")
+                    info("Coldie: INJECTED RESPONSE SENT TO CLIENT! [2/2] :D")
                 except Exception as e:
-                    ctx.log.error(e)
+                    error(e)
             elif apiCloudScriptURLResponse["data"]["FunctionName"] == tutorialWon:
                 if isinstance(apiCloudScriptURLResponse["data"]["FunctionResult"], str):
                     apiCloudScriptURLResponse["data"]["FunctionResult"] = loads(apiCloudScriptURLResponse["data"]["FunctionResult"])
@@ -174,21 +177,20 @@ def response(flow: http.HTTPFlow) -> None:
                     try:
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["BO"] = int(injectedTutorialWonBO) # The injected bomberium is the bomberium you earn visually after spoofed tutorial completion
                         apiCloudScriptURLResponse["data"]["FunctionResult"]["trophies"] = int(injectedTutorialWonMedals) # The injected medals is the medals you earn visually in the spoofed tutorial match
-                        ctx.log.info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
+                        info("Coldie: VALUE INJECTION SUCCESSFUL! [1/2]")
                     except KeyError:
-                        ctx.log.error("Coldie: the API has been changed and the result of the initial data cannot be found")
+                        error("Coldie: the API has been changed and the result of the initial data cannot be found")
                     except Exception as e:
-                        ctx.log.error(e)
+                        error(e)
                 else:
                     pass
             try:
                 flow.response.text = dumps(apiCloudScriptURLResponse)
-                ctx.log.info("Coldie: INJECTED RESPONSE SENT TO CLIENT! [2/2] :D")
+                info("Coldie: INJECTED RESPONSE SENT TO CLIENT! [2/2] :D")
             except Exception as e:
-                ctx.log.error(e)
+                error(e)
             else: # TODO: Implement many more cloud scripts (every cloud script require it's function name and data to setup)
-                ctx.log.warn("Coldie: as of now, Coldie doesn't support other exploitable functions!")
+                warning("Coldie: as of now, Coldie doesn't support other exploitable functions!")
 
         else:
-            ctx.log.error("Coldie: non-ok status code has been returned pre-modification!")
-            
+            error("Coldie: non-ok status code has been returned pre-modification!")
